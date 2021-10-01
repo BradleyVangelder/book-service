@@ -10,6 +10,8 @@ public class Book {
     private String ISBN;
     private String category;
 
+    public Book(){}
+
     public Book(String title,String category,String ISBN){
         setISBN(ISBN);
         setCategory(category);
