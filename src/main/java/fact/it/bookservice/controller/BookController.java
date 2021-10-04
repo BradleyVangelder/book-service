@@ -2,50 +2,35 @@ package fact.it.bookservice.controller;
 
 import fact.it.bookservice.model.Book;
 import fact.it.bookservice.repository.BookRepository;
+import org.neo4j.driver.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
-@RequestMapping("/book")
+
+
 public class BookController {
-
-    @Autowired
+    private final Driver driver;
     private BookRepository bookRepository;
-
-    public BookController(BookRepository bookRepository) {
+    public BookController(Driver driver,BookRepository bookRepository){
+        this.driver = driver;
         this.bookRepository = bookRepository;
     }
-
-    @PostConstruct
-    public void fillDB(){
-        if( bookRepository.count()==0){
-            bookRepository.save(new Book("Harry Potter","Finance", "687468434567"));
-            bookRepository.save(new Book("Harry Potter 2", "Finance", "687468434567"));
-        }
+    @PostMapping("/book")
+        public Book addBook(@RequestBody Book book){
+        bookRepository.save(book);
+        return book;
     }
 
-    @GetMapping("/book")
-     public List<Book> getAllBooks(){
+
+    @GetMapping("/")
+    public List<Book> getAllBooks(){
         List<Book> books = bookRepository.findAll();
         return books;
 
-    }
-    @GetMapping("/{ISBN}")
-    public List<Book> getBooksbyISBN(@PathVariable String ISBN){
-        return bookRepository.findBookByISBN(ISBN);
-    }
-
-    @GetMapping("/category/{category}")
-    public List<Book> getBooksByCategory(@PathVariable String category){
-        return bookRepository.findBookByCategory(category);
-    }
-
-    @PostMapping("/")
-    public Book addBook(@RequestBody Book book){
-        bookRepository.save(book);
-        return book;
     }
 }

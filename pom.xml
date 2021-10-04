@@ -32,10 +32,22 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.5.1</version>
-        </dependency>
+        <groupId>io.projectreactor</groupId>
+        <artifactId>reactor-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>1.15.3</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>neo4j</artifactId>
+        <version>1.15.3</version>
+        <scope>test</scope>
+    </dependency>
     </dependencies>
 
     <build>
