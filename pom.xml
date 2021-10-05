@@ -32,22 +32,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-        <groupId>io.projectreactor</groupId>
-        <artifactId>reactor-test</artifactId>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.testcontainers</groupId>
-        <artifactId>junit-jupiter</artifactId>
-        <version>1.15.3</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.testcontainers</groupId>
-        <artifactId>neo4j</artifactId>
-        <version>1.15.3</version>
-        <scope>test</scope>
-    </dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver-spring-boot-starter</artifactId>
+            <version>4.2.7.0</version>
+        </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>

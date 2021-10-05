@@ -1,8 +1,9 @@
 package fact.it.bookservice.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.neo4j.core.schema.Node;
 
-
+@Node
 public class Book {
     @Id
     private long id;
