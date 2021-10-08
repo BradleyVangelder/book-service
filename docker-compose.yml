@@ -11,16 +11,16 @@ services:
     environment:
       NEO4J_AUTH: neo4j/s3cr3t
 
-  book-service:
-    hostname: book-service
-    container_name: book-service
-    build:
-      context: book-service
-      dockerfile: Dockerfile
-    image: book-service
-    ports:
-      - 8080:8080
-    depends_on:
-      - db
-    environment:
-      - NEO4J_HOST=db
+#  book-service:
+#    hostname: book-service
+#    container_name: book-service
+#    build:
+#      context: book-service
+#      dockerfile: Dockerfile
+#    image: book-service
+#    ports:
+#      - 8080:8080
+#    depends_on:
+#      - db
+#    environment:
+#      - NEO4J_HOST=db
