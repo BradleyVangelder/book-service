@@ -17,10 +17,10 @@ jobs:
 
       - name: Start neo4g for integration test
         uses: baptouuuu/setup-neo4j@v1.2.0
+        env:
+          NEO4J_AUTH: neo4j/s3cr3t
         with:
           tag: '3.4'
-        env:
-          - NEO4J_AUTH: neo4j/s3cr3t
 
       - name: Build, test and package project
         env:
