@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 
@@ -24,10 +25,10 @@ public class BookController {
     public void fillDB(){
         if( bookRepository.count()==0){
             bookRepository.save(new Book("Harry Potter","Finance", "687468434567"));
-            bookRepository.save(new Book("Harry Potter 2", "Finance", "687468434567"));
+            bookRepository.save(new Book("Harry Potter 2", "Finance", "687468434568"));
         }
     }
-    @GetMapping("/book")
+    @GetMapping("/")
     public List<Book> getAllBooks(){
         List<Book> books = bookRepository.findAll();
         return books;
@@ -46,5 +47,12 @@ public class BookController {
     public Book addBook(@RequestBody Book book){
         bookRepository.save(book);
         return book;
+    }
+    @GetMapping("/random")
+    public Book giveRandomBook() {
+        List<Book> books = bookRepository.findAll();
+        Random rand = new Random();
+        Book randomBook = books.get(rand.nextInt(books.size()));
+        return randomBook;
     }
 }
