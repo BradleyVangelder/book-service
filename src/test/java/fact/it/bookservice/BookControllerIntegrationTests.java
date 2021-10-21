@@ -45,29 +45,29 @@ public class BookControllerIntegrationTests {
     }
     private ObjectMapper mapper = new ObjectMapper();
 
-    @Test
-    public void givenBook_whenGetBookByISBN_thenReturnJsonBook() throws Exception {
-
-        mockMvc.perform(get("/book/{ISBN}","ISBN1"))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.title",is("Book1")))
-                .andExpect(jsonPath("$.category",is("Action")))
-                .andExpect(jsonPath("$.isbn",is("ISBN1")));
-    }
-
-    @Test
-    public void givenBooks_whenGetBooksByCategory_thenReturnJsonBooks() throws Exception {
-
-        mockMvc.perform(get("/book/category/{category}","Action"))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].title",is("Book1")))
-                .andExpect(jsonPath("$[0].category",is("Action")))
-                .andExpect(jsonPath("$[0].isbn",is("ISBN1")))
-                .andExpect(jsonPath("$[1].title",is("Book2")))
-                .andExpect(jsonPath("$[1].category",is("Action")))
-                .andExpect(jsonPath("$[1].isbn",is("ISBN2")));
-    }
+//    @Test
+//    public void givenBook_whenGetBookByISBN_thenReturnJsonBook() throws Exception {
+//
+//        mockMvc.perform(get("/book/{ISBN}","ISBN1"))
+//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.title",is("Book1")))
+//                .andExpect(jsonPath("$.category",is("Action")))
+//                .andExpect(jsonPath("$.isbn",is("ISBN1")));
+//    }
+//
+//    @Test
+//    public void givenBooks_whenGetBooksByCategory_thenReturnJsonBooks() throws Exception {
+//
+//        mockMvc.perform(get("/book/category/{category}","Action"))
+//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$", hasSize(2)))
+//                .andExpect(jsonPath("$[0].title",is("Book1")))
+//                .andExpect(jsonPath("$[0].category",is("Action")))
+//                .andExpect(jsonPath("$[0].isbn",is("ISBN1")))
+//                .andExpect(jsonPath("$[1].title",is("Book2")))
+//                .andExpect(jsonPath("$[1].category",is("Action")))
+//                .andExpect(jsonPath("$[1].isbn",is("ISBN2")));
+//    }
 }
