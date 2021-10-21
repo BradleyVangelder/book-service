@@ -1,7 +1,4 @@
 package fact.it.bookservice.model;
-import javax.persistence.*;
-
-import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Node;
