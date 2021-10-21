@@ -35,7 +35,7 @@ public class BookController {
 
     }
     @GetMapping("/{ISBN}")
-    public List<Book> getBooksbyISBN(@PathVariable String ISBN){
+    public Book getBooksbyISBN(@PathVariable String ISBN){
         return bookRepository.findBookByISBN(ISBN);
     }
 
