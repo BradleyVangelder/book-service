@@ -51,9 +51,9 @@ public class BookControllerIntegrationTests {
         mockMvc.perform(get("/book/{ISBN}","ISBN1"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title",is("Book1")))
-                .andExpect(jsonPath("$[0].category",is("Action")))
-                .andExpect(jsonPath("$[0].isbn",is("ISBN1")));
+                .andExpect(jsonPath("$.title",is("Book1")))
+                .andExpect(jsonPath("$.category",is("Action")))
+                .andExpect(jsonPath("$.isbn",is("ISBN1")));
     }
 
     @Test
