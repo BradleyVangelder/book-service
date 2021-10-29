@@ -39,7 +39,7 @@ spec:
               name: neo4j
           env:
             - name: NEO4J_AUTH
-              value: "neo4j/s3cr3t"
+              value: neo4j/s3cr3t
 ---
 apiVersion: apps/v1           # API version
 kind: Deployment              # Type of kubernetes resource
