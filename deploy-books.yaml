@@ -8,7 +8,7 @@ spec:
   ports:
     - port: 7687
   selector:                       # Selects any Pod with labels `app=book-info-service,tier=mysql`
-    app: book-info-service
+    app: book-service
     tier: neo4j
   clusterIP: None
 ---
@@ -39,7 +39,7 @@ spec:
               name: bolt
           env:
             - name: NEO4J_AUTH
-              value: neo4j/s3cr3t
+              value: "neo4j/s3cr3t"
 ---
 apiVersion: apps/v1           # API version
 kind: Deployment              # Type of kubernetes resource
@@ -68,6 +68,10 @@ spec:
             limits:
               cpu: 0.2
               memory: "200Mi"
+          env: # Environment variables supplied to the Pod
+            - name: NEO4j_HOST
+              value: "book-service-neo4j"
+
 ---
 apiVersion: v1                      # API version
 kind: Service                       # Type of the kubernetes resource
