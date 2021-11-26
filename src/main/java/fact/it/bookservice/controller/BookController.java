@@ -24,8 +24,8 @@ public class BookController {
     @PostConstruct
     public void fillDB(){
         if( bookRepository.count()==0){
-            bookRepository.save(new Book("Harry Potter","Finance", "687468434567"));
-            bookRepository.save(new Book("Harry Potter 2", "Finance", "687468434568"));
+            bookRepository.save(new Book("Zero to one","Finance", "687468434568"));
+            bookRepository.save(new Book("The LEAN startup", "Finance", "687468434578"));
         }
     }
     @GetMapping("/")
