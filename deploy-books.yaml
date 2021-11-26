@@ -60,7 +60,7 @@ spec:
       containers:
         - name: book-service-server
           image: bradleysan/book-service:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8051 # The port that the container exposes
@@ -71,7 +71,7 @@ spec:
           env: # Environment variables supplied to the Pod
             - name: NEO4J_HOST
               value: "book-service-neo4j"
-
+   
 ---
 apiVersion: v1                      # API version
 kind: Service                       # Type of the kubernetes resource
