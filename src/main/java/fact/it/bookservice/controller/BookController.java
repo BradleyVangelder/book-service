@@ -43,6 +43,12 @@ public class BookController {
     public List<Book> getBooksByCategory(@PathVariable String category){
         return bookRepository.findBookByCategory(category);
     }
+
+    @GetMapping("/guess/{bookTitleGuess}")
+    public Book bookTitleGuesser(@PathVariable String bookTitleGuess){
+        return bookRepository.findBookByTitle(bookTitleGuess);
+    }
+
     @PostMapping("/")
     public Book addBook(@RequestBody Book book){
         bookRepository.save(book);
