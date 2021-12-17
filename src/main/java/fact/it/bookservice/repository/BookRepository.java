@@ -9,4 +9,5 @@ public interface BookRepository extends Neo4jRepository<Book,Long> {
     Book findBookByISBN(String ISBN);
     List<Book> findBookByCategory(String category);
     Book findBookByTitle(String title);
+    Book findBookById(Long Id);
 }

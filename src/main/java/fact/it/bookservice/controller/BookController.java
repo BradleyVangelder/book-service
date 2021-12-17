@@ -61,4 +61,18 @@ public class BookController {
         Book randomBook = books.get(rand.nextInt(books.size()));
         return randomBook;
     }
+
+    @PutMapping("/{id}")
+    public Book editBook(@PathVariable Long id,@RequestBody Book book){
+        Book b = bookRepository.findBookById(id);
+        b.setTitle(book.getTitle());
+        b.setISBN(book.getISBN());
+        bookRepository.save(b);
+        return b;
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        bookRepository.deleteById(id);
+    }
 }
