@@ -10,7 +10,8 @@ import java.util.List;
 public interface BookRepository extends Neo4jRepository<Book,Long> {
     Book findBookByISBN(String ISBN);
     List<Book> findBookByCategory(String category);
-    @Query("select b from Book b where lower(b.title) like %lower(:titleToFind)%")
+    @Query("select b from Book b where lower(b.title) = lower(:titleToFind)")
     Book findbyTitleFree(@Param("titleToFind") String title);
+    Book findBookByTitleContainingIgnoreCase(String title);
     Book findBookById(Long Id);
 }
