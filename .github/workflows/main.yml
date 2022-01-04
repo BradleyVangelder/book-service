@@ -19,8 +19,6 @@ jobs:
         uses: neo4j
         env:
           NEO4J_AUTH: neo4j/s3cr3t
-        with:
-          tag: '3.4'
 
       - name: Build and analyze
         env:
