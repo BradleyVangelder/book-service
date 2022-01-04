@@ -32,7 +32,6 @@ public class BookController {
     public List<Book> getAllBooks(){
         List<Book> books = bookRepository.findAll();
         return books;
-
     }
     @GetMapping("/{ISBN}")
     public Book getBooksbyISBN(@PathVariable String ISBN){
