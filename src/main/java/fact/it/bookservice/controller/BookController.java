@@ -45,7 +45,7 @@ public class BookController {
 
     @GetMapping("/guess/{bookTitleGuess}")
     public Book bookTitleGuesser(@PathVariable String bookTitleGuess){
-        return bookRepository.findbyTitleFree(bookTitleGuess);
+        return bookRepository.findBookByTitleContainingIgnoreCase(bookTitleGuess);
     }
 
     @PostMapping("/add")
