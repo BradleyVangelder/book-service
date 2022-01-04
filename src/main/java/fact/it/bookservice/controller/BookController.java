@@ -49,7 +49,7 @@ public class BookController {
         return bookRepository.findBookByTitle(bookTitleGuess);
     }
 
-    @PostMapping()
+    @PostMapping("/add")
     public Book addBook(@RequestBody Book book){
         bookRepository.save(book);
         return book;
