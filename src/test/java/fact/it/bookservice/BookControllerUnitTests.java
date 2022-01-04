@@ -42,17 +42,17 @@ public class BookControllerUnitTests {
         bookRepository.save(book1);
         bookRepository.save(book2);
     }
-    @Test
-    public void givenBook_whenGetBookByISBN_thenReturnJsonBook() throws Exception {
-
-        given(bookRepository.findBookByISBN("ISBN1")).willReturn(book1);
-
-        mockMvc.perform(get("/book/{ISBN}","ISBN1"))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$[0].title",is("Book1")))
-                .andExpect(jsonPath("$[0].category",is("Action")))
-                .andExpect(jsonPath("$[0].isbn",is("ISBN1")));
-    }
+//    @Test
+//    public void givenBook_whenGetBookByISBN_thenReturnJsonBook() throws Exception {
+//
+//        given(bookRepository.findBookByISBN("ISBN1")).willReturn(book1);
+//
+//        mockMvc.perform(get("/book/{ISBN}","ISBN1"))
+//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(jsonPath("$[0].title",is("Book1")))
+//                .andExpect(jsonPath("$[0].category",is("Action")))
+//                .andExpect(jsonPath("$[0].isbn",is("ISBN1")));
+//    }
 //
 //    @Test
 //    public void givenBooks_whenGetBooksByCategory_thenReturnJsonBooks() throws Exception {
