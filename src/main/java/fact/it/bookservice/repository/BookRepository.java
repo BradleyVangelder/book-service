@@ -8,6 +8,6 @@ import java.util.List;
 public interface BookRepository extends Neo4jRepository<Book,Long> {
     Book findBookByISBN(String ISBN);
     List<Book> findBookByCategory(String category);
-    Book findBookByTitleIgnoreCase(String title);
+    Book findBookByTitle(String title);
     Book findBookById(Long Id);
 }
