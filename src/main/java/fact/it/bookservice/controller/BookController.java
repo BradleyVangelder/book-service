@@ -45,14 +45,15 @@ public class BookController {
 
     @GetMapping("/guess/{bookTitleGuess}")
     public Book bookTitleGuesser(@PathVariable String bookTitleGuess){
-        return bookRepository.findBookByTitle(bookTitleGuess);
+        return bookRepository.findBookByTitleIgnoreCase(bookTitleGuess);
     }
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public Book addBook(@RequestBody Book book){
         bookRepository.save(book);
         return book;
     }
+
     @GetMapping("/random")
     public Book giveRandomBook() {
         List<Book> books = bookRepository.findAll();
