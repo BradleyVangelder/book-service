@@ -16,7 +16,7 @@ jobs:
           java-version: 11
 
       - name: Start neo4g for integration test
-        uses: neo4j:4.1.4-enterprise
+        uses: neo4j:latest
         env:
           NEO4J_AUTH: neo4j/s3cr3t
 
