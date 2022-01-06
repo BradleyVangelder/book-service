@@ -13,5 +13,5 @@ public interface BookRepository extends Neo4jRepository<Book,Long> {
     @Query("select b from Book b where lower(b.title) = lower(:titleToFind)")
     Book findbyTitleFree(@Param("titleToFind") String title);
     Book findBookByTitleContainingIgnoreCase(String title);
-    Book findBookById(Long Id);
+    Book findBookById(String Id);
 }

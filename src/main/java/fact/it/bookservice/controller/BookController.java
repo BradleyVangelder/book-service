@@ -63,7 +63,7 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
-    public Book editBook(@PathVariable Long id,@RequestBody Book book){
+    public Book editBook(@PathVariable String id,@RequestBody Book book){
         Book b = bookRepository.findBookById(id);
         b.setTitle(book.getTitle());
         b.setISBN(book.getISBN());

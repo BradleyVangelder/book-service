@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 @SpringBootTest
@@ -45,6 +47,8 @@ public class BookControllerIntegrationTests {
     }
     private ObjectMapper mapper = new ObjectMapper();
 
+// Testen kunnen niet uitgevoerd worden omdat de docker image van neo4j problemen geeft.
+
 //    @Test
 //    public void givenBook_whenGetBookByISBN_thenReturnJsonBook() throws Exception {
 //
@@ -69,5 +73,43 @@ public class BookControllerIntegrationTests {
 //                .andExpect(jsonPath("$[1].title",is("Book2")))
 //                .andExpect(jsonPath("$[1].category",is("Action")))
 //                .andExpect(jsonPath("$[1].isbn",is("ISBN2")));
+//    }
+//    @Test
+//    public void whenPostBook_thenReturnJsonBook() throws Exception {
+//        Book book1 = new Book("nieuwebook", "action","ISBN1");
+//
+//        mockMvc.perform(post("/book")
+//                .content(mapper.writeValueAsString(book1))
+//                .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.isbn", is("ISBN1")))
+//                .andExpect(jsonPath("$.quote", is("nieuwebook")))
+//                .andExpect(jsonPath("$.category", is("action")));
+//
+//    }
+//
+//    @Test
+//    public void givenBook_whenPutBook_thenReturnJsonBook() throws Exception {
+//
+//        Book notupdatedBook = new Book("book", "action","ISBN1");
+//        given(bookRepository.findBookById("1")).willReturn(notupdatedBook);
+//        Book updatedBook = new Book("nieuwebook", "action","ISBN1");
+//        mockMvc.perform(put("/book/{id}")
+//                .content(mapper.writeValueAsString(updatedBook))
+//                .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.isbn", is("ISBN1")))
+//                .andExpect(jsonPath("$.quote", is("nieuwebook")))
+//                .andExpect(jsonPath("$.category", is("action")));
+//    }
+//
+//    @Test
+//    public void givenBook_whenDeleteBook_thenStatusOk() throws Exception {
+//
+//        mockMvc.perform(delete("/book/{id}", 1)
+//                .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk());
 //    }
 }
