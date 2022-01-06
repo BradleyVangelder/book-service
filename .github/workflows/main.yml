@@ -16,9 +16,10 @@ jobs:
           java-version: 11
 
       - name: Start neo4g for integration test
-        uses: baptouuuu/setup-neo4j@v1.2.0
+        uses: baptouuuu/setup-neo4j
         env:
           NEO4J_AUTH: neo4j/s3cr3t
+
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
