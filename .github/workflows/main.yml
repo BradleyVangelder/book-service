@@ -15,12 +15,12 @@ jobs:
         with:
           java-version: 11
 
-        - name: neo4j
-          uses: baptouuuu/setup-neo4j@v1.2.0
-          with:
-            tag: '3.4' # optional
-          env:
-            NEO4J_AUTH: neo4j/s3cr3t
+      - name: neo4j
+        uses: baptouuuu/setup-neo4j@v1.2.0
+        with:
+          tag: '3.4' # optional
+        env:
+          NEO4J_AUTH: neo4j/s3cr3t
 
       - name: Build and analyze
         env:
